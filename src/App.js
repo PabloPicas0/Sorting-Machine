@@ -1,10 +1,14 @@
-import './App.css';
+import { Container } from "@mui/material";
+import "./App.css";
+
+import ToolBar from "./Components/Toolbar";
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <>
+      <ToolBar />
+      <Container maxWidth="sm"></Container>
+    </>
   );
 }
 
