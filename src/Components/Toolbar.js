@@ -10,12 +10,11 @@ import {
   Tooltip,
   Typography,
   Menu,
-  Divider
+  Divider,
 } from "@mui/material";
 import { Settings } from "@mui/icons-material";
 
-
-const modes = ["Start", "Reset"];
+const modes = ["Start", "Generate", "Reset"];
 const settings = ["Fast Sorting", "Lazy Sorting", "Sorting 3"];
 
 const ToolBar = (props) => {
@@ -24,7 +23,7 @@ const ToolBar = (props) => {
 
   const handleOpenModeMenu = (event) => {
     setModeElelement(event.currentTarget);
-    console.log(event.currentTarget)
+    console.log(event.currentTarget);
   };
 
   const handleCloseModeMenu = () => {
@@ -65,7 +64,8 @@ const ToolBar = (props) => {
           {modes.map((elements) => (
             <Button
               key={elements}
-              sx={{ my: 2, color: "white", display: "block" }}>
+              sx={{ my: 2, color: "white", display: "block" }}
+              onClick={props.randomBars}>
               {elements}
             </Button>
           ))}
@@ -117,11 +117,16 @@ const ToolBar = (props) => {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}>
           {modes.map((el) => (
-            <MenuItem key={el} sx={{ display: { xs: "flex", md: "none" } }}>
-              <Button>{el} </Button>
+            <MenuItem
+              key={el}
+              sx={{ display: { xs: "flex", md: "none" } }}
+              onClick={props.randomBars}>
+              <Button>{el}</Button>
             </MenuItem>
           ))}
+
           <Divider sx={{ display: { xs: "flex", md: "none" } }} />
+
           {settings.map((el) => (
             <MenuItem key={el}>
               <Button>{el}</Button>
