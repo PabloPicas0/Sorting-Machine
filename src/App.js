@@ -16,7 +16,7 @@ function App() {
   const randomBars = () => {
     const arrOfNumbers = []
 
-    for (let i = 0; i <= 200; i++) {
+    for (let i = 0; i <= 281; i++) {
       arrOfNumbers.push(getRandomNumber(1, 500))
     }
     console.log(arrOfNumbers)
