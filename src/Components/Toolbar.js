@@ -14,8 +14,8 @@ import {
 } from "@mui/material";
 import { Settings } from "@mui/icons-material";
 
-const modes = ["Start", "Generate", "Reset"];
-const settings = ["Fast Sorting", "Lazy Sorting", "Sorting 3"];
+const modes = ["Start", "Generate"];
+const settings = ["Quicksort", "Bubble Sort", "Selection Sort"];
 
 const ToolBar = (props) => {
   const [modeElelement, setModeElelement] = useState(null);
@@ -23,7 +23,6 @@ const ToolBar = (props) => {
 
   const handleOpenModeMenu = (event) => {
     setModeElelement(event.currentTarget);
-    console.log(event.currentTarget);
   };
 
   const handleCloseModeMenu = () => {
@@ -129,7 +128,7 @@ const ToolBar = (props) => {
 
           {settings.map((el) => (
             <MenuItem key={el}>
-              <Button>{el}</Button>
+              <Button onClick={props.startSort}>{el}</Button>
             </MenuItem>
           ))}
         </Menu>

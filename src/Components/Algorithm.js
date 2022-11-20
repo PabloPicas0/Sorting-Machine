@@ -12,7 +12,7 @@ const Algorithm = (props) => {
           <span
             key={index}
             style={{
-              width: 7,
+              width: 15,
               height: `${elements}px`,
               backgroundColor: "#000",
             }}></span>
