@@ -11,8 +11,7 @@ function App() {
   const [starter, setStarter] = useState(false);
 
   useEffect(() => {
-    const bars = document.querySelectorAll("span")
-    setRandomInt(selection_sort(randomInt, bars));
+    setRandomInt(selection_sort(randomInt));
   }, [starter]);
 
   const getRandomNumber = (min, max) => {
