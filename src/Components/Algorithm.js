@@ -15,6 +15,7 @@ const Algorithm = (props) => {
               width: 15,
               height: `${elements}px`,
               backgroundColor: "#000",
+              marginRight: 1,
             }}></span>
         ))}
       </Box>
