@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box } from "@mui/system";
 
-const Algorithm = (props) => {
+const Bars = (props) => {
   return (
     <>
       <Box
@@ -14,7 +14,7 @@ const Algorithm = (props) => {
             style={{
               width: 15,
               height: `${elements}px`,
-              backgroundColor: "#000",
+              backgroundColor: "#03a9f4",
               marginRight: 1,
             }}></span>
         ))}
@@ -23,4 +23,4 @@ const Algorithm = (props) => {
   );
 };
 
-export default Algorithm;
+export default Bars;
