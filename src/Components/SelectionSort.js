@@ -1,7 +1,6 @@
 const selectionSort = (arr, callback) => {
   setTimeout(() => {
     let newArr = [...arr];
-    const arrElements = document.querySelectorAll("#randomBar");
     for (let i = 0; i < arr.length - 1; i++) {
       setTimeout(() => {
         for (let j = i + 1; j < arr.length; j++) {
@@ -10,13 +9,10 @@ const selectionSort = (arr, callback) => {
             newArr[i] = newArr[j];
             newArr[j] = temp;
             let nextStep = [...newArr];
-            
-            setTimeout(() => {
-              callback([...nextStep]);
-            }, j * 5);
+            callback([...nextStep]);
           }
         }
-      }, i * 100);
+      }, i * 50);
     }
   }, 10);
 };
