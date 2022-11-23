@@ -13,9 +13,10 @@ import {
   Divider,
 } from "@mui/material";
 import { Settings } from "@mui/icons-material";
+import selectionSort from "./SelectionSort";
 
-const modes = ["Randomize"];
-const settings = ["Quicksort", "Bubble Sort", "Selection Sort", "Merge Sort"];
+const modes = ["Start","Randomize"];
+const settings = ["Quicksort", "Bubble Sort", "Selection Sort"];
 
 const ToolBar = (props) => {
   const [modeElelement, setModeElelement] = useState(null);
@@ -128,7 +129,10 @@ const ToolBar = (props) => {
 
           {settings.map((el) => (
             <MenuItem key={el}>
-              <Button>{el}</Button>
+              <Button
+                onClick={() => selectionSort(props.arrayIntegers, props.setRandomInt)}>
+                {el}
+              </Button>
             </MenuItem>
           ))}
         </Menu>

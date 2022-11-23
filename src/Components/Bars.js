@@ -10,6 +10,7 @@ const Bars = (props) => {
         borderBottom={1}>
         {props.randomInt.map((elements, index) => (
           <span
+            id="randomBar"
             key={index}
             style={{
               width: 15,

@@ -5,7 +5,6 @@ import "./App.css";
 
 import ToolBar from "./Components/Toolbar";
 import Bars from "./Components/Bars";
-import mergeSort from "./Components/MergeSort";
 
 function App() {
   const [randomInt, setRandomInt] = useState([]);
@@ -33,6 +32,7 @@ function App() {
       <ToolBar
         randomBars={randomBars}
         arrayIntegers={randomInt}
+        setRandomInt={setRandomInt}
       />
       <Container maxWidth={false} sx={{ m: 0 }}>
         <Bars randomInt={randomInt} />
