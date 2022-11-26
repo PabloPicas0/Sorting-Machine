@@ -8,12 +8,12 @@ const Bars = (props) => {
       <Box
         sx={{ height: "91vh", display: "flex", alignItems: "end" }}
         borderBottom={1}>
-        {props.randomInt.map((elements, index) => (
+        {props.animation.map((elements, index) => (
           <span
-            id="randomBar"
+            id={index}
             key={index}
             style={{
-              width: 15,
+              width: 35,
               height: `${elements}px`,
               backgroundColor: "#03a9f4",
               marginRight: 1,
