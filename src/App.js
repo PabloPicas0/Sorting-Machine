@@ -80,12 +80,50 @@ function App() {
     }
   };
 
+  const bubbleSort = async () => {
+    const sortedArr = animation
+    let sorted = false
+
+    while(!sorted) {
+      sorted = true
+
+      for(let i = 0; i < sortedArr.length; i++) {
+        for(let j = 0; j < sortedArr.length; j++) {
+          if(!sorted) {
+            let bar1 = document.getElementById(j).style;
+            let bar2 = document.getElementById(j + 1).style;
+
+            bar1.backgroundColor = "green";
+            bar2.backgroundColor = "red";
+
+            await sleep(10);
+
+            bar1.backgroundColor = "#03a9f4";
+            bar2.backgroundColor = "#03a9f4";
+          }
+          if(sortedArr[j] > sortedArr[j + 1]) {
+            let temp = sortedArr[j]
+            sortedArr[j] = sortedArr[j + 1]
+            sortedArr[j + 1] = temp
+
+            setAnimation([...animation, sortedArr])
+
+            sorted = false
+          }
+        }
+      }
+      if (sorted) {
+        finishedAnimation()
+      }
+    }
+  }
+
   return (
     <>
       <ToolBar
         randomBars={randomBars}
         animation={animation}
-        selectionSort={selectionSort}
+        selectionSort={bubbleSort}
       />
       <Container maxWidth={false} sx={{ m: 0 }}>
         <Bars animation={animation} />
