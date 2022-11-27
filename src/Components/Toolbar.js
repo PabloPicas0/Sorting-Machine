@@ -15,7 +15,7 @@ import {
 import { Settings } from "@mui/icons-material";
 
 const modes = ["Start", "Randomize"];
-const settings = ["Quicksort", "Bubble Sort", "Selection Sort"];
+const settings = ["Insertion Sort", "Bubble Sort", "Selection Sort"];
 
 const ToolBar = (props) => {
   const [modeElelement, setModeElelement] = useState(null);

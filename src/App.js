@@ -49,7 +49,7 @@ function App() {
 
       for (let i = 0; i < sortedArr.length; i++) {
         for (let j = i + 1; j < sortedArr.length; j++) {
-          if(!sorted) {
+          if (!sorted) {
             let bar1 = document.getElementById(i).style;
             let bar2 = document.getElementById(j).style;
 
@@ -81,15 +81,15 @@ function App() {
   };
 
   const bubbleSort = async () => {
-    const sortedArr = animation
-    let sorted = false
+    const sortedArr = animation;
+    let sorted = false;
 
-    while(!sorted) {
-      sorted = true
+    while (!sorted) {
+      sorted = true;
 
-      for(let i = 0; i < sortedArr.length; i++) {
-        for(let j = 0; j < sortedArr.length; j++) {
-          if(!sorted) {
+      for (let i = 0; i < sortedArr.length; i++) {
+        for (let j = 0; j < sortedArr.length; j++) {
+          if (!sorted) {
             let bar1 = document.getElementById(j).style;
             let bar2 = document.getElementById(j + 1).style;
 
@@ -101,29 +101,67 @@ function App() {
             bar1.backgroundColor = "#03a9f4";
             bar2.backgroundColor = "#03a9f4";
           }
-          if(sortedArr[j] > sortedArr[j + 1]) {
-            let temp = sortedArr[j]
-            sortedArr[j] = sortedArr[j + 1]
-            sortedArr[j + 1] = temp
+          if (sortedArr[j] > sortedArr[j + 1]) {
+            let temp = sortedArr[j];
+            sortedArr[j] = sortedArr[j + 1];
+            sortedArr[j + 1] = temp;
 
-            setAnimation([...animation, sortedArr])
+            setAnimation([...animation, sortedArr]);
 
-            sorted = false
+            sorted = false;
           }
         }
       }
       if (sorted) {
-        finishedAnimation()
+        finishedAnimation();
       }
     }
-  }
+  };
+
+  const insetrtionSort = async () => {
+    const sortedArr = animation;
+    let sorted = false;
+
+    while (!sorted) {
+      sorted = true;
+
+      for (let i = 1; i < sortedArr.length; i++) {
+        let current = sortedArr[i];
+        let j = i - 1;
+
+        while (j >= 0 && sortedArr[j] > current) {
+          sorted = false;
+
+          if (!sorted) {
+            let bar1 = document.getElementById(j + 1).style;
+            let bar2 = document.getElementById(j).style;
+
+            bar1.backgroundColor = "red";
+            bar2.backgroundColor = "green";
+
+            await sleep(10);
+            bar1.backgroundColor = "#03a9f4";
+            bar2.backgroundColor = "#03a9f4";
+          }
+          sortedArr[j + 1] = sortedArr[j]
+          setAnimation([...animation, sortedArr])
+          j--
+        }
+        sortedArr[j + 1] = current
+        setAnimation([...animation, sortedArr])
+      }
+    }
+    if(sorted) {
+      finishedAnimation()
+    }
+  };
 
   return (
     <>
       <ToolBar
         randomBars={randomBars}
         animation={animation}
-        selectionSort={bubbleSort}
+        selectionSort={insetrtionSort}
       />
       <Container maxWidth={false} sx={{ m: 0 }}>
         <Bars animation={animation} />
