@@ -28,6 +28,34 @@ function App() {
     randomBars();
   }, []);
 
+  const algoSwitch = (event) => {
+    setSwitchAlgorithm(event.target.textContent);
+  };
+
+  const startAlgorithm = () => {;
+    switch (switchAlgorithm) {
+      case "Insertion Sort":
+        insetrtionSort();
+        break;
+      case "Selection Sort":
+        selectionSort();
+        break;
+      case "Bubble Sort":
+        bubbleSort();
+        break;
+      default:
+        break;
+    }
+  };
+
+  const generateNewArr = () => {
+    for(let i = 0; i < animation.length; i++) {
+      let bars = document.getElementById(i).style
+      bars.backgroundColor = "#03a9f4";
+    }
+    randomBars()
+  }
+
   const sleep = (time) => {
     return new Promise((resolve) => setTimeout(resolve, time));
   };
@@ -143,25 +171,26 @@ function App() {
             bar1.backgroundColor = "#03a9f4";
             bar2.backgroundColor = "#03a9f4";
           }
-          sortedArr[j + 1] = sortedArr[j]
-          setAnimation([...animation, sortedArr])
-          j--
+          sortedArr[j + 1] = sortedArr[j];
+          setAnimation([...animation, sortedArr]);
+          j--;
         }
-        sortedArr[j + 1] = current
-        setAnimation([...animation, sortedArr])
+        sortedArr[j + 1] = current;
+        setAnimation([...animation, sortedArr]);
       }
     }
-    if(sorted) {
-      finishedAnimation()
+    if (sorted) {
+      finishedAnimation();
     }
   };
 
   return (
     <>
       <ToolBar
-        randomBars={randomBars}
+        startAlgorithm={startAlgorithm}
+        generateNewArr={generateNewArr}
         animation={animation}
-        selectionSort={insetrtionSort}
+        algoSwitch={algoSwitch}
       />
       <Container maxWidth={false} sx={{ m: 0 }}>
         <Bars animation={animation} />

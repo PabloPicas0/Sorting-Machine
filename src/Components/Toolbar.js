@@ -64,7 +64,11 @@ const ToolBar = (props) => {
             <Button
               key={elements}
               sx={{ my: 2, color: "white", display: "block" }}
-              onClick={props.randomBars}>
+              onClick={(e) => {
+                e.target.textContent === "Start"
+                  ? props.startAlgorithm()
+                  : props.generateNewArr();
+              }}>
               {elements}
             </Button>
           ))}
@@ -119,7 +123,7 @@ const ToolBar = (props) => {
             <MenuItem
               key={el}
               sx={{ display: { xs: "flex", md: "none" } }}
-              onClick={props.randomBars}>
+              onClick={props.startAlgorithm}>
               <Button>{el}</Button>
             </MenuItem>
           ))}
@@ -128,7 +132,7 @@ const ToolBar = (props) => {
 
           {settings.map((el) => (
             <MenuItem key={el}>
-              <Button onClick={props.selectionSort}>{el}</Button>
+              <Button onClick={(e) => props.algoSwitch(e)}>{el}</Button>
             </MenuItem>
           ))}
         </Menu>
