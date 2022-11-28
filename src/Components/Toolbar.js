@@ -123,7 +123,11 @@ const ToolBar = (props) => {
             <MenuItem
               key={el}
               sx={{ display: { xs: "flex", md: "none" } }}
-              onClick={props.startAlgorithm}>
+              onClick={(e) => {
+                e.target.textContent === "Start"
+                  ? props.startAlgorithm()
+                  : props.generateNewArr();
+              }}>
               <Button>{el}</Button>
             </MenuItem>
           ))}
