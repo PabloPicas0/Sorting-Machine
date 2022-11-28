@@ -32,7 +32,7 @@ function App() {
     setSwitchAlgorithm(event.target.textContent);
   };
 
-  const startAlgorithm = () => {;
+  const startAlgorithm = () => {
     switch (switchAlgorithm) {
       case "Insertion Sort":
         insetrtionSort();
@@ -48,13 +48,14 @@ function App() {
     }
   };
 
-  const generateNewArr = () => {
-    for(let i = 0; i < animation.length; i++) {
-      let bars = document.getElementById(i).style
+  const generateNewArr = async () => {
+    for (let i = animation.length - 1; i >= 0; i--) {
+      let bars = document.getElementById(i).style;
       bars.backgroundColor = "#03a9f4";
+      await sleep(1)
     }
-    randomBars()
-  }
+    randomBars();
+  };
 
   const sleep = (time) => {
     return new Promise((resolve) => setTimeout(resolve, time));
