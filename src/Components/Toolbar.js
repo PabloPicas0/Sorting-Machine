@@ -68,7 +68,8 @@ const ToolBar = (props) => {
                 e.target.textContent === "Start"
                   ? props.startAlgorithm()
                   : props.generateNewArr();
-              }}>
+              }}
+              disabled={props.disableBtn ? true : false}>
               {elements}
             </Button>
           ))}
@@ -120,15 +121,15 @@ const ToolBar = (props) => {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}>
           {modes.map((el) => (
-            <MenuItem
-              key={el}
-              sx={{ display: { xs: "flex", md: "none" } }}
-              onClick={(e) => {
-                e.target.textContent === "Start"
-                  ? props.startAlgorithm()
-                  : props.generateNewArr();
-              }}>
-              <Button>{el}</Button>
+            <MenuItem key={el} sx={{ display: { xs: "flex", md: "none" } }}>
+              <Button
+                onClick={(e) => {
+                  e.target.textContent === "Start"
+                    ? props.startAlgorithm()
+                    : props.generateNewArr();
+                }}>
+                {el}
+              </Button>
             </MenuItem>
           ))}
 

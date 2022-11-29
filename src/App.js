@@ -8,7 +8,8 @@ import Bars from "./Components/Bars";
 
 function App() {
   const [animation, setAnimation] = useState([]);
-  const [switchAlgorithm, setSwitchAlgorithm] = useState("");
+  const [switchAlgorithm, setSwitchAlgorithm] = useState("Insertion Sort");
+  const [disableBtn, setDisableBtn] = useState(false);
 
   const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
@@ -52,7 +53,7 @@ function App() {
     for (let i = animation.length - 1; i >= 0; i--) {
       let bars = document.getElementById(i).style;
       bars.backgroundColor = "#03a9f4";
-      await sleep(1)
+      await sleep(1);
     }
     randomBars();
   };
@@ -100,12 +101,14 @@ function App() {
             setAnimation([...animation, sortedArr]);
 
             sorted = false;
+            setDisableBtn(!sorted);
           }
         }
       }
       if (sorted) {
         finishedAnimation();
       }
+      setDisableBtn(!sorted);
     }
   };
 
@@ -138,12 +141,14 @@ function App() {
             setAnimation([...animation, sortedArr]);
 
             sorted = false;
+            setDisableBtn(!sorted);
           }
         }
       }
       if (sorted) {
         finishedAnimation();
       }
+      setDisableBtn(!sorted);
     }
   };
 
@@ -160,7 +165,7 @@ function App() {
 
         while (j >= 0 && sortedArr[j] > current) {
           sorted = false;
-
+          setDisableBtn(!sorted);
           if (!sorted) {
             let bar1 = document.getElementById(j + 1).style;
             let bar2 = document.getElementById(j).style;
@@ -183,6 +188,7 @@ function App() {
     if (sorted) {
       finishedAnimation();
     }
+    setDisableBtn(!sorted);
   };
 
   return (
@@ -192,6 +198,7 @@ function App() {
         generateNewArr={generateNewArr}
         animation={animation}
         algoSwitch={algoSwitch}
+        disableBtn={disableBtn}
       />
       <Container maxWidth={false} sx={{ m: 0 }}>
         <Bars animation={animation} />
