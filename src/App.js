@@ -21,11 +21,14 @@ function App() {
     for (let i = 0; i <= 100; i++) {
       arrOfNumbers.push(getRandomNumber(10, 500));
     }
-    console.log(arrOfNumbers);
     setAnimation(arrOfNumbers);
   };
 
   useEffect(() => {
+    for (let i = 0; i < animation.length; i++) {
+      let bar = document.getElementById(i).style;
+      bar.backgroundColor = "#03a9f4";
+    }
     randomBars();
   }, []);
 
@@ -195,55 +198,60 @@ function App() {
   };
 
   const merge = async (arr, left, mid, right) => {
+    let l = left;
+    let r = mid + 1;
+    let base = 0;
+    let tempArr = [];
 
-    let n1 = mid - left + 1
-    let n2 = right - mid
-    
-    let l = new Array(n1)
-    let r = new Array(n2)
-
-    for (let i = 0; i < n1; i++) {
-      l[i] = arr[left + i]
-    }
-    for (let j = 0; j < n2; j++) {
-      r[j] = arr[mid + 1 + j]
-    }
-
-
-    let i = 0
-    let j = 0
-    let k = left
-
-    while (i < n1 && j < n2) {
-      if (l[i] <= r[j]) {
-        arr[k] = l[i];
-        i++;
+    while (l <= mid && r <= right) {
+      if (arr[l] < arr[r]) {
+        tempArr[base] = arr[l];
+        l++;
+        base++;
       } else {
-        arr[k] = r[j];
-        j++;
+        tempArr[base] = arr[r];
+        r++;
+        base++;
       }
-      k++;
+      setAnimation([...animation, tempArr]);
 
-      setAnimation([...animation, arr]);
+      let bar1 = document.getElementById(l).style;
+      let bar2 = document.getElementById(r).style;
 
-        let bar1 = document.getElementById(i).style;
-        let bar2 = document.getElementById(mid + j).style;
+      bar1.backgroundColor = "green";
+      bar2.backgroundColor = "red";
 
-        bar1.backgroundColor = "green";
-        bar2.backgroundColor = "red";
-
-        await sleep(10);
-        bar1.backgroundColor = "#03a9f4";
-        bar2.backgroundColor = "#03a9f4";
+      await sleep(10);
+      bar1.backgroundColor = "#03a9f4";
+      bar2.backgroundColor = "#03a9f4";
     }
 
-    while(i < n1) {
-      arr[k] = l[i]
+    while (l <= mid) {
+      tempArr[base] = arr[l];
 
-      setAnimation([...animation, arr]);
+      setAnimation([...animation, tempArr]);
 
-      let bar1 = document.getElementById(i).style;
-      let bar2 = document.getElementById(mid + j).style;
+      let bar1 = document.getElementById(l).style;
+      let bar2 = document.getElementById(r).style;
+
+      bar1.backgroundColor = "green";
+      bar2.backgroundColor = "red";
+
+      await sleep(10);
+      bar1.backgroundColor = "#03a9f4";
+      bar2.backgroundColor = "#03a9f4"
+
+      l++;
+      base++;
+    }
+
+    while (r <= right) {
+      tempArr[base] = arr[r];
+
+      setAnimation([...animation, tempArr]);
+
+      let bar1 = document.getElementById(l).style;
+      let bar2 = document.getElementById(r).style;
 
       bar1.backgroundColor = "green";
       bar2.backgroundColor = "red";
@@ -252,33 +260,19 @@ function App() {
       bar1.backgroundColor = "#03a9f4";
       bar2.backgroundColor = "#03a9f4";
 
-      i++
-      k++
+      r++;
+      base++;
     }
 
-    while(j < n2) {
-      arr[k] = r[j]
-      
-      setAnimation([...animation, arr]);
-
-      let bar1 = document.getElementById(i).style;
-      let bar2 = document.getElementById(mid + j).style;
-
-      bar1.backgroundColor = "green";
-      bar2.backgroundColor = "red";
-
-      await sleep(10);
-      bar1.backgroundColor = "#03a9f4";
-      bar2.backgroundColor = "#03a9f4";
-
-      j++
-      k++
+    for (let i = left; i <= right; i++) {
+      arr[i] = tempArr[i - left];
+      setAnimation([...arr]);
     }
   };
 
   const sort = async (arr, left, right) => {
     if (left >= right) {
-      return
+      return;
     }
     let mid = Math.floor((left + right) / 2);
     await sort(arr, left, mid);
@@ -288,8 +282,11 @@ function App() {
 
   const mergeSort = async () => {
     let sortedArr = animation;
+    setDisableBtn(true)
 
     await sort(sortedArr, 0, sortedArr.length - 1);
+
+    setDisableBtn(false)
     finishedAnimation();
   };
 
