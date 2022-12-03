@@ -1,5 +1,5 @@
 # Sorting Visualizer
-Sort Visualizer shows working of classic sorting algorithms 
+Sorting Visualizer shows how works classic sorting algorithms 
 such as merge sort, selection sort, bubble sort, insertion sort.
 
 This app was build using React and can be accessed here: https://pablopicas0.github.io/Sorting-Machine/ 
