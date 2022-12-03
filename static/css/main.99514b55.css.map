@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.99514b55.css","mappings":"AAAA,KAEE,kCAAmC,CACnC,iCAAkC,CAFlC,QAGF,CCJA,KACE,4BACF","sources":["index.css","App.css"],"sourcesContent":["body {\n  margin: 0;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}",".App {\n  border-bottom: 1px solid #000;\n}\n"],"names":[],"sourceRoot":""}
