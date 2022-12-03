@@ -15,7 +15,12 @@ import {
 import { Settings } from "@mui/icons-material";
 
 const modes = ["Start", "Randomize"];
-const settings = ["Insertion Sort", "Bubble Sort", "Selection Sort", "Merge Sort"];
+const settings = [
+  "Insertion Sort",
+  "Bubble Sort",
+  "Selection Sort",
+  "Merge Sort",
+];
 
 const ToolBar = (props) => {
   const [modeElelement, setModeElelement] = useState(null);
@@ -33,7 +38,7 @@ const ToolBar = (props) => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Sorting ToolBar
+          Sorting Visualizer
         </Typography>
 
         <Box

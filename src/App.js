@@ -76,6 +76,9 @@ function App() {
     }
   };
 
+  // -------------- Algorithms Section -------------- //
+
+  //Selection Sort
   const selectionSort = async () => {
     const sortedArr = animation;
     let sorted = false;
@@ -118,6 +121,7 @@ function App() {
     }
   };
 
+  //Bubble Sort
   const bubbleSort = async () => {
     const sortedArr = animation;
     let sorted = false;
@@ -158,6 +162,7 @@ function App() {
     }
   };
 
+  //Insertion Sort
   const insetrtionSort = async () => {
     const sortedArr = animation;
     let sorted = false;
@@ -197,6 +202,7 @@ function App() {
     setDisableBtn(!sorted);
   };
 
+  //Merge Sort
   const merge = async (arr, left, mid, right) => {
     let l = left;
     let r = mid + 1;
@@ -239,7 +245,7 @@ function App() {
 
       await sleep(10);
       bar1.backgroundColor = "#03a9f4";
-      bar2.backgroundColor = "#03a9f4"
+      bar2.backgroundColor = "#03a9f4";
 
       l++;
       base++;
@@ -282,11 +288,11 @@ function App() {
 
   const mergeSort = async () => {
     let sortedArr = animation;
-    setDisableBtn(true)
+    setDisableBtn(true);
 
     await sort(sortedArr, 0, sortedArr.length - 1);
 
-    setDisableBtn(false)
+    setDisableBtn(false);
     finishedAnimation();
   };
 
