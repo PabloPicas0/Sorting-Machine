@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Sorting-Machine/static/css/main.99514b55.css",
-    "main.js": "/Sorting-Machine/static/js/main.011551da.js",
+    "main.js": "/Sorting-Machine/static/js/main.c37e49e0.js",
     "static/js/787.e51238e2.chunk.js": "/Sorting-Machine/static/js/787.e51238e2.chunk.js",
     "index.html": "/Sorting-Machine/index.html",
     "main.99514b55.css.map": "/Sorting-Machine/static/css/main.99514b55.css.map",
-    "main.011551da.js.map": "/Sorting-Machine/static/js/main.011551da.js.map",
+    "main.c37e49e0.js.map": "/Sorting-Machine/static/js/main.c37e49e0.js.map",
     "787.e51238e2.chunk.js.map": "/Sorting-Machine/static/js/787.e51238e2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.99514b55.css",
-    "static/js/main.011551da.js"
+    "static/js/main.c37e49e0.js"
   ]
 }
