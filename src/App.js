@@ -131,6 +131,16 @@ function App() {
 
       for (let i = 0; i < sortedArr.length; i++) {
         for (let j = 0; j < sortedArr.length; j++) {
+          if (sortedArr[j] > sortedArr[j + 1]) {
+            let temp = sortedArr[j];
+            sortedArr[j] = sortedArr[j + 1];
+            sortedArr[j + 1] = temp;
+
+            setAnimation([...animation, sortedArr]);
+
+            sorted = false;
+            setDisableBtn(!sorted);
+          }
           if (!sorted) {
             let bar1 = document.getElementById(j).style;
             let bar2 = document.getElementById(j + 1).style;
@@ -143,16 +153,7 @@ function App() {
             bar1.backgroundColor = "#03a9f4";
             bar2.backgroundColor = "#03a9f4";
           }
-          if (sortedArr[j] > sortedArr[j + 1]) {
-            let temp = sortedArr[j];
-            sortedArr[j] = sortedArr[j + 1];
-            sortedArr[j + 1] = temp;
-
-            setAnimation([...animation, sortedArr]);
-
-            sorted = false;
-            setDisableBtn(!sorted);
-          }
+          console.log(sortedArr)
         }
       }
       if (sorted) {
