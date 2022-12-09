@@ -153,7 +153,6 @@ function App() {
             bar1.backgroundColor = "#03a9f4";
             bar2.backgroundColor = "#03a9f4";
           }
-          console.log(sortedArr)
         }
       }
       if (sorted) {
